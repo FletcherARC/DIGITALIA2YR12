@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+    <title>ST PAULS ESPORTS</title>
+<body>
+    <H3>GAMES</H3>
+    <form method="POST" action="/Games">
+
+    {{ form.csrf_token }}
+
+    {{ form.name.label }}
+            {{ form.name(size=20) }}
+
+        {% if form.name.errors %}
+            <ul class="errors">
+                {% for error in form.name.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+        {% endif %}
+    {{ form.submit.label }}
+    {{ form.submit() }} <br>
+
+    <table>
+        <tr style="border-bottom: 1px solid #ddd;">
+            <th style="width: 400px;">Name</th>
+            <th>Platform</th>
+            <th>Year</th>
+        </tr>
+    {% for row in data %}
+        <tr style="border-bottom: 1px solid #ddd;">
+        <td>{{ row[0] }}</td>
+        <td>{{ row[1] }}</td>
+        <td>{{ row[2] }}</td>
+        </tr>
+
+
+
+    {% endfor %}
+    </table>
+</body>
+
+{% endblock %}
