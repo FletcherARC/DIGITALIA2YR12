@@ -1,11 +1,36 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
 {% block content %}
-    <Title>LOGIN PAGE</Title>
+    <Title>SignUp</Title>
 
 <Body>
-    <form method="POST" action="/Login">
+{{ data }}
+    <form method="POST" action="/SignUp">
         {{ form.csrf_token }}
+      <p>
+            {{ form.lname.label }}
+            {{ form.lname(size=20) }}
+        </p>
+
+        {% if form.lname.errors %}
+            <ul class="errors">
+                {% for error in form.lname.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+      <p>
+            {{ form.name.label }}
+            {{ form.name(size=20) }}
+        </p>
+
+        {% if form.name.errors %}
+            <ul class="errors">
+                {% for error in form.name.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
         <p>
             {{ form.password.label }}
             {{ form.password(size=20) }}
@@ -34,7 +59,8 @@
         {{ form.submit.label }}
         {{ form.submit() }}
 
-    <H1>LOGIN HERE</H1>
+    <H1>SIGN UP</H1>
+    </form>
 </Body>
 
 {% endblock %}

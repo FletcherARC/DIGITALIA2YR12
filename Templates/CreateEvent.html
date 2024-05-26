@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <Title>SignUp</Title>
+
+<Body>
+{{ data }}
+    <form method="POST" action="/CreateEvent/{{TeamID1}}/{{TeamID2}}">
+        {{ form.csrf_token }}
+      <p>
+            {{ form.eventname.label }}
+            {{ form.eventname(size=20) }}
+        </p>
+
+        {% if form.eventname.errors %}
+            <ul class="errors">
+                {% for error in form.eventname.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+      <p>
+            {{ form.eventdate.label }}
+            {{ form.eventdate(size=20) }}
+        </p>
+
+        {% if form.eventdate.errors %}
+            <ul class="errors">
+                {% for error in form.eventdate.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <p>
+        <p>
+          
+            {{ form.eventdesc.label }}
+            {{ form.eventdesc(size=20) }}
+        </p>
+
+        {% if form.eventdesc.errors %}
+            <ul class="errors">
+                {% for error in form.eventdesc.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {{ form.submit.label }}
+        {{ form.submit() }}
+
+    </form>
+</Body>
+{% endblock %}

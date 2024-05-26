@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GAMESDATA</title>
+</head>
+<body>
+    <tr style="border-bottom: 1px solid #ddd;">
+        <td>{{ games_data[0] }}</td>
+        <td>{{ games_data[1] }}</td>
+        <td>{{ games_data[2] }}</td>
+        <td>{{ games_data[3] }}</td>
+        <td>{{ games_data[4] }}</td>
+        <td>{{ games_data[5] }}</td>
+        </tr>
+
+    <a href="{{ url_for('CreateTeam',  column1=column1) }}">
+        <button type="button"> Make a team for this game </button>
+
+    <a href="{{ url_for('addfavorite',  column1=column1) }}">
+        <button type="button"> ADD FAVORITE </button>
+        <a href="{{ url_for('removefavorite',  column1=column1) }}">
+        <button type="button"> REMOVE FAVORITE </button>
+</body>
+</html>

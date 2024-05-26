@@ -8,12 +8,25 @@
     {% if login %}
   <a href="{{ url_for('Login') }}" class="w3-bar-item w3-button w3-mobile"> Login </a>
     {% endif %}
-  <a href="{{ url_for('Index') }}" class="w3-bar-item w3-button w3-mobile">Index</a>
-  <a href="{{ url_for('Games') }}" class="w3-bar-item w3-button w3-mobile">Link 2</a>
-  <a href="#" class="w3-bar-item w3-button w3-mobile">Link 3</a>
+  <a href="{{ url_for('Index') }}" class="w3-bar-item w3-button w3-mobile">Home</a>
+  <a href="{{ url_for('Games') }}" class="w3-bar-item w3-button w3-mobile">Games</a>
+  <a href="{{ url_for('Teams') }}" class="w3-bar-item w3-button w3-mobile">Teams</a>
+
+  <a href="{{ url_for('logout') }}" class="w3-bar-item w3-button w3-mobile">LOGOUT</a>
+
 </div>
 
 <body>
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for category, message in messages %}
+      <li class="{{ category }}">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
   {% block content %} {% endblock %}
 </body>
 </html>

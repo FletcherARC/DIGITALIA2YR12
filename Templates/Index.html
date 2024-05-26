@@ -4,9 +4,48 @@
     <title>ST PAULS ESPORTS</title>
 </head> <a href="{{ url_for('Login') }}"> <H1> LOGIN </H1> </a>
 <body>
-{{ data }}
+
     <H3>ST PAULS SCHOOL ESPORTS | LEAGUE OF LEGENDS</H3>
-    <p>In the st pauls esports community we value good teamwork and playing</p>
+    <p>In the St Pauls ESPORTS community we value good teamwork and playing</p>
+    <table>
+        <tr style="border-bottom: 1px solid #ddd;">
+            <th style="width: 400px;">Name</th>
+        </tr>
+
+    {% for row in data %}
+
+        <tr style="border-bottom: 1px solid #ddd;">
+        <td>{{ row[0] }}</td>
+        <td>
+            <a href="{{ url_for('GamesData',  column1=row[1]) }}">
+        <button type="button"> GAME COMMUNITY PAGE </button>
+            </a>
+        </td>
+        </tr>
+    {% endfor %}
+    </table>
+<h2>Events</h2>
+<table>
+        <tr style="border-bottom: 1px solid #ddd;">
+            <th>Team 1</th>
+            <th>Team 2</th>
+            <th>Game</th>
+            <th>Event Name</th>
+            <th>Time</th>
+            <th>Description</th>
+        </tr>
+    {% for row in event_data %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            <td>{{ row[0] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[5] }}</td>
+
+        </tr>
+    {% endfor %}
+    </table>
 </body>
 
 {% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+    <title>ST PAULS ESPORTS</title>
+<body>
+    <H3>TeamPlayers</H3>
+    <table>
+        <tr style="border-bottom: 1px solid #ddd;">
+            <th style="">Team Name</th>
+            <th>Make Event</th>
+            <th></th>
+            <th></th>
+        </tr>
+    {% for row in Teams %}
+        <tr style="border-bottom: 1px solid #ddd;">
+        <td>{{ row[0] }}</td>
+            <td><a href="{{ url_for('CreateEvent', TeamID1=TeamID, TeamID2=row[1]) }}">
+            <button type="button"> Make Event </button>
+            </a></td>
+        </tr>
+
+
+
+    {% endfor %}
+    </table>
+   </body>
+
+{% endblock %}

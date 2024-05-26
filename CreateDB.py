@@ -12,4 +12,4 @@ def create_connection(db_file):
         if conn:
             conn.close()
 
-create_connection("Games_Table.db")
+create_connection("DatabaseTable.db")

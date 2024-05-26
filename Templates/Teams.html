@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+    <title>ST PAULS ESPORTS</title>
+<body>
+    <H3>TeamPlayers</H3>
+    <table>
+        <tr style="border-bottom: 1px solid #ddd;">
+            <th style="">Team Name</th>
+            <th>Members</th>
+            <th>Team War Cry</th>
+            <th>Game</th>
+            <th></th>
+            <th></th>
+        </tr>
+    {% for row in member_of %}
+        <tr style="border-bottom: 1px solid #ddd;">
+        <td>{{ row[0] }}</td>
+        <td>{{ row[1] }}</td>
+        <td>{{ row[3] }}</td>
+            <td> {{ row[5] }}</td>
+        <td>{% if session["PersonID"] == row[2] %}
+
+            <a href="{{ url_for('AddMembers', TeamID=row[4]) }}">
+            <button type="button"> Add members to teams </button>
+            </a>
+            <a href="{{ url_for('ShowRivalTeams', TeamID=row[4]) }}">
+            <button type="button">Create Event</button>
+            </a>
+            {% endif %}
+        </td>
+        </tr>
+
+
+
+    {% endfor %}
+    </table>
+   </body>
+
+{% endblock %}

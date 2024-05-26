@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <Title>ADD MEMBERS TO YOUR TEAM</Title>
+
+<Body>
+    <form method="POST" action="/AddMembers/{{TeamID}}">
+        {{ form.csrf_token }}
+      <p>
+            {{ form.emailname.label }}
+            {{ form.emailname(size=20) }}
+        </p>
+
+        {% if form.emailname.errors %}
+            <ul class="errors">
+                {% for error in form.emailname.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {{ form.submit.label }}
+        {{ form.submit() }}
+
+    </form>
+</Body>
+{% endblock %}

@@ -19,7 +19,8 @@
         {% endif %}
     {{ form.submit.label }}
     {{ form.submit() }} <br>
-
+            </ul>
+    </form>
     <table>
         <tr style="border-bottom: 1px solid #ddd;">
             <th style="width: 400px;">Name</th>
@@ -31,6 +32,11 @@
         <td>{{ row[0] }}</td>
         <td>{{ row[1] }}</td>
         <td>{{ row[2] }}</td>
+        <td>
+            <a href="{{ url_for('GamesData',  column1=row[3]) }}">
+        <button type="button"> GAME COMMUNITY PAGE </button>
+            </a>
+        </td>
         </tr>
 
 
